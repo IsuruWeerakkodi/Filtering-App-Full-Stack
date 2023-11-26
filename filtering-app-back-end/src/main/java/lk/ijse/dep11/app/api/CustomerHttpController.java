@@ -12,6 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.annotation.PreDestroy;
 import javax.validation.ConstraintDeclarationException;
 import javax.validation.ConstraintViolationException;
+import java.util.LinkedList;
 import java.util.List;
 
 @RestController
@@ -46,7 +47,7 @@ public class CustomerHttpController {
 
     @GetMapping
     public List<CustomerTO> getAllCustomers(){
-        return null;
+
     }
 
     @GetMapping(params = {"sort"})
@@ -63,7 +64,9 @@ public class CustomerHttpController {
     public List<CustomerTO> getAllSortedAndPaginatedCustomers(){
         return null;
     }
+
     public List<CustomerTO> getCustomersList(){
-        return null;
+        LinkedList<CustomerTO> customerList = new LinkedList<>();
+        while (rst.next)
     }
 }
