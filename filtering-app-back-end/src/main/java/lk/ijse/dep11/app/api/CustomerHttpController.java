@@ -134,7 +134,7 @@ public class CustomerHttpController {
                     (order.equalsIgnoreCase("asc") ? "ASC" : "DESC")+
                     "LIMIT ? OFFSET ?");
             if (q==null) q="";
-            for (int i = 1; i < 5; i++) {
+            for (int i = 1; i <= 5; i++) {
                 stm.setObject(i, "%"+q+"%");
             }
             stm.setInt(6, size);
