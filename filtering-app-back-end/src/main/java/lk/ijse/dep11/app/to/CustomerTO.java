@@ -1,4 +1,4 @@
-package lk.ijse.dep11.app.to.Customer;
+package lk.ijse.dep11.app.to;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -2,7 +2,7 @@ package lk.ijse.dep11.app.api;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import lk.ijse.dep11.app.to.Customer.CustomerTO;
+import lk.ijse.dep11.app.to.CustomerTO;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.annotation.PreDestroy;
-import javax.validation.ConstraintDeclarationException;
 import javax.validation.ConstraintViolationException;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
@@ -71,7 +70,8 @@ public class CustomerHttpController {
     @GetMapping(params = {"sort"})
     public List<CustomerTO> getAllSortedCustomers(String q,
                                                   @Pattern(regexp="^(id|first_name|last_name|contact|country),(asc|desc)$",
-                                                  message = "Invalid sorting parameter")String sort){
+                                                  message = "Invalid sorting parameter")String sort) {
+
         String[] splitText = sort.split(",");
         String colName = splitText[0];
         String order = splitText[1];
@@ -79,10 +79,12 @@ public class CustomerHttpController {
 
         try (Connection connection = pool.getConnection()) {
             final int COLUMN_INDEX = colNames.indexOf(colName.intern());
+
             PreparedStatement stm = connection.prepareStatement("SELECT * FROM customer " +
                     "WHERE id LIKE ? OR first_name LIKE ? OR last_name LIKE ? OR " +
                     "contact LIKE ? OR country LIKE ? ORDER BY " + colNames.get(COLUMN_INDEX) + " " +
                     (order.equalsIgnoreCase("asc") ? "ASC" : "DESC"));
+
             if (q==null) q="";
             for (int i = 1; i <= 5; i++) {
                 stm.setObject(i, "%" + q + "%");
@@ -120,7 +122,8 @@ public class CustomerHttpController {
                                                               @Positive(message = "Page can't be zero or negative") int page,
                                                               @Positive(message = "Size can't be zero or negative") int size,
                                                               @Pattern(regexp="^(id|first_name|last_name|contact|country),(asc|desc)$",
-                                                                      message = "Invalid sorting parameter")String sort){
+                                                                      message = "Invalid sorting parameter")String sort) {
+        System.out.println("Start");
         String[] splitText = sort.split(",");
         String colName = splitText[0];
         String order = splitText[1];
@@ -131,17 +134,14 @@ public class CustomerHttpController {
             PreparedStatement stm = connection.prepareStatement("SELECT * FROM customer " +
                     "WHERE id LIKE ? OR first_name LIKE ? OR last_name LIKE ? OR " +
                     "contact LIKE ? OR country LIKE ? ORDER BY " + colNames.get(COLUMN_INDEX) + " " +
-                    (order.equalsIgnoreCase("asc") ? "ASC" : "DESC")+
-                    "LIMIT ? OFFSET ?");
-            if (q==null) q="";
-            for (int i = 1; i <= 5; i++) {
-                stm.setObject(i, "%"+q+"%");
-            }
+                    (order.equalsIgnoreCase("asc") ? "ASC" : "DESC") +
+                    " LIMIT ? OFFSET ?");
+            if (q == null) q = "";
+            for (int i = 1; i <= 5; i++) stm.setObject(i, "%" + q + "%");
             stm.setInt(6, size);
             stm.setInt(7, (page - 1) * size);
             ResultSet rst = stm.executeQuery();
             return getCustomersList(rst);
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
