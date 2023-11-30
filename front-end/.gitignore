@@ -1,5 +1,5 @@
 .parcel-cache/
-node-modules/
+node_modules/
 dist/
 .vscode/
 .DS_Store
