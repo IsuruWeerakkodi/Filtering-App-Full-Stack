@@ -8,13 +8,6 @@ Also, the Customer API project provides a robust and scalable RESTful API for ma
 
 ## Key Features
 
-### CRUD Operations for Customers
-
-- **Create:** Add new customers with their details.
-- **Retrieve:** Obtain existing customer information by their ID.
-- **Update:** Modify existing customer information.
-- **Delete:** Remove existing customers.
-
 ### Filtering and Sorting
 
 - **Filtering:** Search and filter customers based on their ID, name, contact number, or country.
@@ -49,7 +42,7 @@ Follow these steps:
 3. Create a MySQL database named `dep11_filtering_app`.
 4. Configure the database connection properties in the `application.properties` file.
 5. Start the MySQL database server.
-6. Run the Spring Boot application using your preferred method (e.g., Maven, IDE).
+6. Run application using your preferred method (e.g., Maven, IDE).
 
 The API will be available on port 8080 by default.
 
@@ -89,34 +82,6 @@ The API will be available on port 8080 by default.
 - **Description:** Get a paginated list of sorted customers.
 - **Request Method:** GET
 - **Data Format:** JSON
-
-### Create a New Customer
-
-- **Endpoint:** `/customers`
-- **Description:** Create a new customer.
-- **Request Method:** POST
-- **Data Format:** JSON
-
-### Get Customer by ID
-
-- **Endpoint:** `/customers/{id}`
-- **Description:** Get customer by ID.
-- **Request Method:** GET
-- **Data Format:** JSON
-
-### Update Customer Information
-
-- **Endpoint:** `/customers/{id}`
-- **Description:** Update customer information.
-- **Request Method:** PUT
-- **Data Format:** JSON
-
-### Delete Customer
-
-- **Endpoint:** `/customers/{id}`
-- **Description:** Delete customer by ID.
-- **Request Method:** DELETE
-- **Data Format:** N/A
 
 ## Data Formats
 
