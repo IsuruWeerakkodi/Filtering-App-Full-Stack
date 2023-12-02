@@ -82,7 +82,7 @@ List and explain the available API endpoints and their functionalities.
 
 ## Contribution
 
-Thank you for considering contributing to our project! We welcome contributions from the community to improve and grow this project.
+Thank you for considering contributing to my project! I welcome contributions from the community to improve and grow this project.
 
 ### How to Contribute
 
