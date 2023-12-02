@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS customer
+`CREATE TABLE IF NOT EXISTS customer
 (
     id         INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
@@ -1140,3 +1140,4 @@ INSERT INTO customer (first_name, last_name, contact, country)
 VALUES ('Devika', 'Kumari', '071-6758467', 'India');
 INSERT INTO customer (first_name, last_name, contact, country)
 VALUES ('Tharindu', 'Lakshan', '077-8564738', 'Sri Lanka');
+`

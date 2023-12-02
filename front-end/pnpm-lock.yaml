@@ -8,6 +8,9 @@ dependencies:
   bootstrap:
     specifier: ^5.3.2
     version: 5.3.2(@popperjs/core@2.11.8)
+  bootstrap-icons:
+    specifier: ^1.11.2
+    version: 1.11.2
 
 devDependencies:
   parcel:
@@ -1129,6 +1132,10 @@ packages:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
+  /bootstrap-icons@1.11.2:
+    resolution: {integrity: sha512-TgdiPv+IM9tgDb+dsxrnGIyocsk85d2M7T0qIgkvPedZeoZfyeG/j+yiAE4uHCEayKef2RP05ahQ0/e9Sv75Wg==}
+    dev: false
+
   /bootstrap@5.3.2(@popperjs/core@2.11.8):
     resolution: {integrity: sha512-D32nmNWiQHo94BKHLmOrdjlL05q1c8oxbtBphQFb9Z5to6eGRDCm0QgeaZ4zFBHzfg2++rqa2JkqCcxDy0sH0g==}
     peerDependencies:
@@ -1150,8 +1157,8 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001565
-      electron-to-chromium: 1.4.598
-      node-releases: 2.0.13
+      electron-to-chromium: 1.4.600
+      node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
     dev: true
 
@@ -1309,8 +1316,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /electron-to-chromium@1.4.598:
-    resolution: {integrity: sha512-0JnipX0scPUlwsptQVCZggoCpREv+IrVD3h0ZG+sldmK9L27tSV3QjV8+QdaA4qQTzDf3PluNS45YYJky1oASw==}
+  /electron-to-chromium@1.4.600:
+    resolution: {integrity: sha512-KD6CWjf1BnQG+NsXuyiTDDT1eV13sKuYsOUioXkQweYTQIbgHkXPry9K7M+7cKtYHnSUPitVaLrXYB1jTkkYrw==}
     dev: true
 
   /entities@2.2.0:
@@ -1651,8 +1658,8 @@ packages:
       detect-libc: 2.0.2
     dev: true
 
-  /node-releases@2.0.13:
-    resolution: {integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==}
+  /node-releases@2.0.14:
+    resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}
     dev: true
 
   /nth-check@2.1.1:

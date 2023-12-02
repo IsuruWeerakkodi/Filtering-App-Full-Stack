@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filtering App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favi.png">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <script type="module" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <h1>
-        Filtering App
-    </h1>
+    <header class="text-center border-bottom p-2">
+        <h1>Filtering App</h1>
+    </header> 
+    <main class="p-2 ">
+        <input id="txt-search" class="form-control text-center p-2" type="text" placeholder="Enter a text to search">
+        <div class="mt-2 table-responsive">
+            <table id="tbl-customers" class="table m-2 table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>FIRST NAME</th>
+                        <th>LAST NAME</th>
+                        <th>CONTACT</th>
+                        <th>COUNTRY</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="loader" class="d-flex justify-content-center">
+            <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+    </main>
 </body>
 </html>
