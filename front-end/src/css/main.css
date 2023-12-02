@@ -109,7 +109,7 @@
     background-color: rgb(112, 112, 112, 0.8) !important;
  }
  html[data-bs-theme="dark"] td.col-hover {
-    background-color: rgb(112, 112, 112, 0.5) !important;
+    background-color: rgb(112, 119, 112, 0.5) !important;
  }
 
  html[data-bs-theme="light"] th.col-hover {
@@ -135,7 +135,7 @@ html[data-bs-theme="light"] td.col-hover {
     content: "";
     position: absolute;
     display: block;  
-    border-top: 8px solid white;
+    border-top: 8px solid red;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     right: 10px;
@@ -143,17 +143,7 @@ html[data-bs-theme="light"] td.col-hover {
     transform: translateY(-50%);
 }
 
-.sorted.order-up::after {
-  content: "";
-  position: absolute;
-  display: block;
-  border-bottom: 5px solid white;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
+
 
 .mode {
   cursor: pointer;

@@ -5,11 +5,13 @@ const loaderElm = document.querySelector("#loader");
 const btnModeElm = document.querySelector("#btn-mode"); 
 const { API_BASE_URL } = process.env;
 
+let searchParams = new URL(location).searchParams;
 let abortControll = null;
 let sort = "id,asc";
-let q = '';
-
-loadAllCustomers();
+let q = searchParams.get('q') ?? '';
+txtSearchElm.value = q;
+ 
+loadAllCustomers(q);
 
 
 function loadAllCustomers(query){
@@ -19,7 +21,9 @@ function loadAllCustomers(query){
         abortControll.abort('Request aborted');
     }
     abortControll = new AbortController();
-    const signal = abortControll.signal;
+    const signal = abortControll.signal; 
+    const quertString = ``;
+    history.replaceState({}, '', location.origin + "?q=" + q);
     fetch(`${API_BASE_URL}/customers?sort=${sort}&page=1&size=50&q=${q}`, {signal}) 
     .then(req => req.json())
     .then(customerList => {
@@ -70,23 +74,17 @@ tblCustomerElm.querySelectorAll('thead th').forEach(th => {
 });
 
 tblCustomerElm.querySelector('thead').addEventListener('click', (e) => {
-    if (e.target?.tagName === 'TH') {
-        const thElm = e.target;
-        const colName = (thElm.innerText.trim().toLowerCase().split("").join("_"));
+    const thElm = e.target.closest('th');
+    if (thElm) {
+        const colName = thElm.innerText.trim().toLowerCase().replace(/\s+/g, '');
         tblCustomerElm.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
         thElm.classList.add('sorted');
-        if (thElm.classList.contains('order-down')){
-            thElm.classList.remove('order-down');
-            thElm.classList.add('order-up');
-            sort = `${colName}, desc`;
-        }else {
-            thElm.classList.remove('order-up');
-            thElm.classList.add('order-down');
-            sort = `${colName}, asc`;
-        }
+        sort = `${colName},${thElm.classList.contains('order-down') ? 'desc' : 'asc'}`;
+        thElm.classList.toggle('order-down');
+        thElm.classList.toggle('order-up');
         loadAllCustomers();
     }
-})
+});
 
 btnModeElm.addEventListener('click', () => {
     if (btnModeElm.classList.contains('bi-moon-fill')) {
