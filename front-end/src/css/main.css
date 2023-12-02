@@ -105,4 +105,45 @@
     }
   }
   
- 
+ th.col-hover {
+    background-color: rgb(44, 40, 40) !important;
+ }
+ td.col-hover {
+    background-color: rgb(44, 40, 40) !important;
+ }
+   
+ #tbl-customers{
+    cursor: pointer;
+ }
+
+#tbl-customers th {
+  user-select: none;
+}
+
+ .sorted {
+    position: relative;
+ }
+
+.sorted.order-down::after {
+    content: "";
+    position: absolute;
+    display: block;  
+    border-top: 8px solid white;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sorted.order-up::after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-bottom: 5px solid white;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}

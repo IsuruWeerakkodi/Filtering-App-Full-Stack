@@ -1,11 +1,11 @@
 
 const txtSearchElm = document.querySelector("#txt-search");
 const tblCustomerElm = document.querySelector("#tbl-customers");
-const tFootElm = document.querySelector("#tbl-customers tfoot");
 const loaderElm = document.querySelector("#loader");
 const { API_BASE_URL } = process.env;
 
 let abortControll = null;
+let sort = "id,asc";
 
 loadAllCustomers();
 
@@ -50,3 +50,37 @@ function addNewRow(customer){
 txtSearchElm.addEventListener('input', () => {
     loadAllCustomers(txtSearchElm.value.trim());
 });
+
+tblCustomerElm.querySelectorAll('thead th').forEach(th => {
+    th.addEventListener('mouseenter', (e)=>{
+        th.classList.add('col-hover');
+        const colIndex = Array.from(th.parentElement.children).indexOf(th);
+        tblCustomerElm.querySelectorAll(`tbody tr td:nth-child(${colIndex + 1})`)
+        .forEach(td => td.classList.add('col-hover'));
+    });
+    th.addEventListener('mouseleave', (e)=>{
+        th.classList.remove('col-hover');  
+        const colIndex = Array.from(th.parentElement.children).indexOf(th);
+        tblCustomerElm.querySelectorAll(`tbody tr td:nth-child(${colIndex + 1})`)
+        .forEach(td => td.classList.remove('col-hover'));
+    });
+});
+
+tblCustomerElm.querySelector('thead').addEventListener('click', (e) => {
+    if (e.target?.tagName === 'TH') {
+        const thElm = e.target;
+        const colName = (thElm.innerText.trim().toLowerCase().split("").join("_"));
+        tblCustomerElm.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
+        thElm.classList.add('sorted');
+        if (thElm.classList.contains('order-down')){
+            thElm.classList.remove('order-down');
+            thElm.classList.add('order-up');
+            sort = `${colName}, desc`;
+        }else {
+            thElm.classList.remove('order-up');
+            thElm.classList.add('order-down');
+            sort = `${colName}, desc`;
+        }
+        tblCustomerElm.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
+    }
+})
