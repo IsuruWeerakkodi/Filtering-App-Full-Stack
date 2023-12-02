@@ -1,92 +1,151 @@
 # Filtering App
+The project uses the following technologies:
 
-## Project Overview
+Spring, HikariCP, MySQL, Lombok, Jackson Databind, Validation API, Java, Html, CSS, Hibernate Validator, Java Servlet API, JUnit Jupiter.
 
-This project is an effort of showcasing the integration and functionality of Spring Framework, Java Bean Validation, HikariCP, JUnit 5, JavaFaker, and Spring AOP, along with the practical application of Filtering, Pagination, and Sorting, all in action within a single cohesive environment. 
 
-Also, the Customer API project provides a robust and scalable RESTful API for managing customer data. Users can perform CRUD operations on customers, filter and sort them based on various criteria, and efficiently manage database connections using the Hikari connection pool.
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [License](#license)
+- [Copyright](#copyright)
 
-## Key Features
+## Introduction
 
-### Filtering and Sorting
+Filtering App is a web application that allows users to search and filter customer data. It provides a user-friendly interface to search for customers based on various criteria and displays the results in a table.
 
-- **Filtering:** Search and filter customers based on their ID, name, contact number, or country.
-- **Sorting:** Sort customers using criteria such as ID, name, or contact number.
+## Features
 
-### Database Connection Management
+You will experience a user-friendly interface for searching, filtering, and viewing customer data in a sortable table. The dark/light mode option enhances the user experience, and the responsive design ensures accessibility on various devices.
+Other than that,
 
-- Efficiently manages database connections using the Hikari connection pool.
+- Search Functionality
+- Sortable Table
+- Clear Search Results Message
+- Column Hover Effect
+- Column Sorting Indicator:
+- Dynamic URL Update
+- Toggle-able Dark Mode Icon
+- Bootstrap Styling
 
-## Technology Stack
-
-- Spring Boot
-- MySQL
-- HikariCP
-- JavaFaker
-- hibernate-validator
-- jackson-databind
-- lombok
 
 ## Getting Started
 
-To run the project, ensure you have the following installed:
+To run this project locally, follow the steps below:
 
-1. Java Development Kit (JDK) 11 or higher
-2. Maven
-3. MySQL database server
+### Prerequisites
 
-Follow these steps:
+Ensure you have the following software installed on your machine:
 
-1. Clone the project repository.
-2. Open the project in your preferred IDE.
-3. Create a MySQL database named `dep11_filtering_app`.
-4. Configure the database connection properties in the `application.properties` file.
-5. Start the MySQL database server.
-6. Run application using your preferred method (e.g., Maven, IDE).
+- Java Development Kit (JDK) 8 or later
+- Maven (for building and managing dependencies)
+- [MySQL](https://www.mysql.com/) or another relational database (ensure you have the necessary credentials)
 
-The API will be available on port 8080 by default.
+### Clone the Repository
 
-## Endpoints
+```bash
+git clone https://github.com/IsuruWeerakkodi/Filtering-App-Full-Stack.git
+cd your-project
+```
+### Configure Database
+- Create a new database in your MySQL server.
+- Update the database configuration in src/main/resources/application.properties with your database credentials.
 
-### Get All Customers
+```bash
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
+### Build the Project
+```bash
+mvn clean install
+```
+### Run the Application
+```bash
+java -jar target/your-project.jar
+```
+The application will start, and you can access it at [http://localhost:8080](http://localhost:8080)
 
-- **Endpoint:** `/customers`
-- **Description:** Get all customers.
-- **Request Method:** GET
-- **Data Format:** JSON
+## Usage
+The project's REST API provides the following endpoints:
 
-### Get Filtered Customers
+List and explain the available API endpoints and their functionalities.
 
-- **Endpoint:** `/customers`
-- **Description:** Get all customers filtered by the search term.
-- **Request Method:** GET
-- **Data Format:** JSON
+- `/customers`: Get a list of all customers.
+- `/customers?sort={sortParam}`: Get sorted customers based on the specified parameter.
+- `/customers?page={pageNumber}&size={pageSize}`: Get paginated customers.
+- `/customers?page={pageNumber}&size={pageSize}&sort={sortParam}`: Get sorted and paginated customers.
 
-### Get Sorted Customers
+## Contribution
 
-- **Endpoint:** `/customers`
-- **Description:** Get all customers sorted by the specified column and order.
-- **Request Method:** GET
-- **Data Format:** JSON
+Thank you for considering contributing to our project! We welcome contributions from the community to improve and grow this project.
 
-### Get Paginated Customers
+### How to Contribute
 
-- **Endpoint:** `/customers`
-- **Description:** Get a paginated list of customers.
-- **Request Method:** GET
-- **Data Format:** JSON
+1. **Fork the Repository:**
+   - Fork the project to your GitHub account.
+   - Clone your fork to your local machine:
 
-### Get Paginated Sorted Customers
+     ```bash
+     git clone https://github.com/IsuruWeerakkodi/Filtering-App-FullStack.git
+     cd your-project
+     ```
 
-- **Endpoint:** `/customers`
-- **Description:** Get a paginated list of sorted customers.
-- **Request Method:** GET
-- **Data Format:** JSON
+2. **Create a Branch:**
+   - Create a new branch for your feature or bug fix:
 
-## Data Formats
+     ```bash
+     git checkout -b feature-or-fix-branch
+     ```
 
-The API primarily uses JSON as the data format for both requests and responses.
+3. **Make Changes:**
+   - Implement your changes and ensure that your code follows the project's coding standards.
+
+4. **Test:**
+   - Test your changes thoroughly to ensure they work as expected.
+
+5. **Commit:**
+   - Commit your changes with a clear and concise commit message:
+
+     ```bash
+     git commit -m "Add feature or fix bug"
+     ```
+
+6. **Push Changes:**
+   - Push your changes to your fork:
+
+     ```bash
+     git push origin feature-or-fix-branch
+     ```
+
+7. **Create a Pull Request:**
+   - Create a pull request from your branch to the main repository.
+   - Provide a clear title and description for your pull request.
+
+8. **Code Review:**
+   - Participate in the code review process, address any feedback, and make necessary changes.
+
+9. **Merge:**
+   - Once your changes are approved, they will be merged into the main branch.
+
+### Issue Reporting
+
+If you encounter any issues or have suggestions for improvement, please open an issue on the [GitHub Issues](https://github.com/your-username/your-project/issues) page.
+
+Thank you for contributing!
 
 ## License
-This project is licenced under [MIT License]
+
+This project is licensed under the MIT License - [click here](LICENSE.txt) for more details.
+
+## Copyright Statement
+
+The content of this project is © Isuru Weerakkodi 2023.
+All rights reserved.
+
+
 
