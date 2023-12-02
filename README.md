@@ -1,7 +1,7 @@
 # Filtering App
-The project uses the following technologies:
+The project uses the following languages and technologies:
 
-Java, javaScript, Html, CSS, Spring framework, HikariCP, MySQL, Lombok, Jackson Databind, Validation API, Java, Html, CSS, Hibernate Validator, Java Servlet API, JUnit Jupiter.
+Java, javaScript, Html, CSS, Spring framework, HikariCP, MySQL, Lombok, Jackson Databind, Validation API, Hibernate Validator, Java Servlet API, JUnit Jupiter.
 
 
 ## Table of Contents
@@ -62,13 +62,13 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 ### Build the Project
 ```bash
-mvn clean install
+npm run build
 ```
 ### Run the Application
 ```bash
-java -jar target/your-project.jar
+npm start
 ```
-The application will start, and you can access it at [http://localhost:8080](http://localhost:8080)
+The application will start, and you can access it at [http://localhost:1324](http://localhost:1234) as shown when run the application
 
 ## Usage
 The project's REST API provides the following endpoints:
