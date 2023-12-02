@@ -2,22 +2,25 @@
 const txtSearchElm = document.querySelector("#txt-search");
 const tblCustomerElm = document.querySelector("#tbl-customers");
 const loaderElm = document.querySelector("#loader");
+const btnModeElm = document.querySelector("#btn-mode"); 
 const { API_BASE_URL } = process.env;
 
 let abortControll = null;
 let sort = "id,asc";
+let q = '';
 
 loadAllCustomers();
 
 
 function loadAllCustomers(query){
+    q = query ?? q;
     loaderElm.classList.remove('d-none');
     if (abortControll) {
         abortControll.abort('Request aborted');
     }
     abortControll = new AbortController();
     const signal = abortControll.signal;
-    fetch(`${API_BASE_URL}/customers?page=1&size=50&q=${query ?? ''}`, {signal}) 
+    fetch(`${API_BASE_URL}/customers?sort=${sort}&page=1&size=50&q=${q}`, {signal}) 
     .then(req => req.json())
     .then(customerList => {
         abortControll = null;
@@ -79,8 +82,20 @@ tblCustomerElm.querySelector('thead').addEventListener('click', (e) => {
         }else {
             thElm.classList.remove('order-up');
             thElm.classList.add('order-down');
-            sort = `${colName}, desc`;
+            sort = `${colName}, asc`;
         }
-        tblCustomerElm.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
+        loadAllCustomers();
+    }
+})
+
+btnModeElm.addEventListener('click', () => {
+    if (btnModeElm.classList.contains('bi-moon-fill')) {
+        btnModeElm.classList.remove('bi-moon-fill');
+        btnModeElm.classList.add('bi-sun-fill');
+        document.querySelector('html').setAttribute('data-bs-theme', 'light');
+    }else {
+        btnModeElm.classList.add('bi-moon-fill');
+        btnModeElm.classList.remove('bi-sun-fill');
+        document.querySelector('html').setAttribute('data-bs-theme', 'dark');
     }
 })

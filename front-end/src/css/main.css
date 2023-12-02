@@ -105,12 +105,19 @@
     }
   }
   
- th.col-hover {
-    background-color: rgb(44, 40, 40) !important;
+ html[data-bs-theme="dark"] th.col-hover {
+    background-color: rgb(112, 112, 112, 0.8) !important;
  }
- td.col-hover {
-    background-color: rgb(44, 40, 40) !important;
+ html[data-bs-theme="dark"] td.col-hover {
+    background-color: rgb(112, 112, 112, 0.5) !important;
  }
+
+ html[data-bs-theme="light"] th.col-hover {
+  background-color: rgb(153, 153, 153) !important;
+}
+html[data-bs-theme="light"] td.col-hover {
+  background-color: rgb(44, 40, 40, 0.2) !important;
+}
    
  #tbl-customers{
     cursor: pointer;
@@ -146,4 +153,17 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.mode {
+  cursor: pointer;
+}
+
+.mode {
+  transition: all 500ms;
+}
+
+.mode:hover {
+  cursor: pointer;
+  background-color: rgb(75, 75, 75);
 }

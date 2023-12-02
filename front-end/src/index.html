@@ -15,11 +15,13 @@
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <header class="text-center border-bottom p-2">
-        <h1>Filtering App</h1>
+    <header class="border-bottom p-2 border-bottom d-flex justify-content-between align-items-center">
+        <h1 class="bi bi-funnel-fill m-2 text-warning"> Filtering App</h1>
+        <i id="btn-mode" class="mode bi bi-moon-fill fs-2 px-2 rounded-circle"></i>
     </header> 
     <main class="p-2 ">
         <input id="txt-search" class="form-control text-center p-2" type="text" placeholder="Enter a text to search">
+        <div class="mt-2 text-end">Total customers: 5000</div>
         <div class="mt-2 table-responsive">
             <table id="tbl-customers" class="table m-2 table-bordered">
                 <thead>
