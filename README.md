@@ -1,7 +1,7 @@
 # Filtering App
 The project uses the following technologies:
 
-Spring, HikariCP, MySQL, Lombok, Jackson Databind, Validation API, Java, Html, CSS, Hibernate Validator, Java Servlet API, JUnit Jupiter.
+Java, javaScript, Html, CSS, Spring framework, HikariCP, MySQL, Lombok, Jackson Databind, Validation API, Java, Html, CSS, Hibernate Validator, Java Servlet API, JUnit Jupiter.
 
 
 ## Table of Contents
