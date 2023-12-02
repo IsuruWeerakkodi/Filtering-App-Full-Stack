@@ -7,11 +7,11 @@ Spring, HikariCP, MySQL, Lombok, Jackson Databind, Validation API, Java, Html, C
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [Getting Started](#getting)
+- [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Contribution](#contribution)
 - [License](#license)
-- [Copyright](#copyright)
+- [Copyright](#copyright-statement)
 
 ## Introduction
 
